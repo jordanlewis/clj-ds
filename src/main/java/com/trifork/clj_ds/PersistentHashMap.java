@@ -156,7 +156,7 @@ public PersistentHashMap<K,V> without(K key){
 	return new PersistentHashMap<K,V>(meta(), count - 1, newroot, hasNull, nullValue);
 }
 
-public Iterator<Map.Entry<K, V>> iterator2(){
+public Iterator<Map.Entry<K, V>> iterator(){
 	return new Iterator<Map.Entry<K, V>>() {
 		ISeq<IMapEntry<K, V>> seq = seq();
 
@@ -178,7 +178,7 @@ public Iterator<Map.Entry<K, V>> iterator2(){
 	};
 }
 
-public Iterator<Map.Entry<K, V>> iterator(){
+public Iterator<Map.Entry<K, V>> iterator2(){
 	final Iterator<Map.Entry<K, V>> s = root != null ? root.nodeIt(false) : new EmptyIterator();
 	return hasNull ? new Iterator<Map.Entry<K, V>>(){
 		Iterator<Map.Entry<K, V>> i = s;
